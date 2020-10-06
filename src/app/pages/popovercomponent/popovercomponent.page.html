@@ -1,0 +1,7 @@
+<ion-content slot="fixed">
+    <ion-slides [options]="slideOptsTwo" (ionSlidesDidLoad)="ionViewDidEnter()" >
+        <ion-slide *ngFor="let s of sliderTwo.slidesItems" (click)="audio()">
+            <img src="assets/imagen/{{s.imagen}}.jpg">
+        </ion-slide>
+    </ion-slides>
+</ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "escolar",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

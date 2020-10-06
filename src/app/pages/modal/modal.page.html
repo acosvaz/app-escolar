@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{custom_id}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content slot="fixed">
+
+	<ion-slides [options]=slideOptsTwo>
+		<ion-slide (click)="audio(name1, audio1)">
+
+			<img src="assets/imagen/{{imagen1}}.jpg"/>
+
+		</ion-slide>
+		<ion-slide (click)="audio(name2, audio2)">
+
+			<img src="assets/imagen/{{imagen2}}.jpg"/>
+
+		</ion-slide>
+		<ion-slide (click)="audio(name3, audio3)">
+
+			<img src="assets/imagen/{{imagen3}}.jpg"/>
+
+		</ion-slide>
+	</ion-slides>
+
+	<ion-button (click)="clickin()" color="primary" expand="full"></ion-button>
+
+</ion-content>

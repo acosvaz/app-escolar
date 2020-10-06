@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="newcolor">
+    <ion-title color="light" text-center>Ejercicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<img src="assets/imagen/una.png" class="icon">
+	<br>
+	<ion-row style = "border: dashed 3px #cecece;
+			height: 100px ;
+              display: flex;
+              align-items: center;
+              justify-content: center">
+		<ion-col>
+			<ion-list cdkDropList 
+			#firstList="cdkDropList"
+			[cdkDropListData]="listOne"
+			[cdkDropListConnectedTo]="[secondList]"
+			(cdkDropListDropped)="drop($event)"
+			>
+			<ion-card *ngFor="let item of listOne" cdkDrag>
+				<ion-card-content>
+					{{item}}
+				</ion-card-content>
+			</ion-card>
+			</ion-list>
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col>
+			<ion-list cdkDropList #secondList="cdkDropList"
+			[cdkDropListData]="listTwo"
+			[cdkDropListConnectedTo]="[firstList]"
+			(cdkDropListDropped)="drop($event)"
+			>
+			<ion-card *ngFor="let item of listTwo" cdkDrag>
+				<ion-card-content>
+					{{item}}
+				</ion-card-content>
+			</ion-card>
+			</ion-list>
+		</ion-col>
+	</ion-row>
+
+</ion-content>
