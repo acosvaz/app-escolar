@@ -2,11 +2,13 @@
   --ion-color-base: #02BBD2;
 }
 
-ion-col {
-     border-radius: 9px;
+.tab {
+	background-color: #FFFFFF
 }
 
 ion-row {
+	border: solid 2px #954c9e;
+	border-radius: 9px;
+	background-color: #02BBD2;
 	margin: 0px 10px 0px;
-	background: url(/assets/image/cuatro.jpg) no-repeat center/cover fixed;
 }
