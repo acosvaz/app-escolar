@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!isRegister">
+    <img src="assets/imagen/libro.jpg" class="icon">
+    <br><br>
+    <ion-item>
+      <ion-label position="floating">Nombre:</ion-label>
+      <ion-input type="text" name="nombre" [(ngModel)]="form.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre de Usuario:</ion-label>
+      <ion-input type="text" name="username" [(ngModel)]="form.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña:</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="form.password"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Tipo de usuario</ion-label>
+          <ion-select [(ngModel)]="form.tipo_user" interface="popover">
+            <ion-select-option *ngFor="let tipo of tipos" value="tipo.valor">{{tipo.nombre}}</ion-select-option>
+        </ion-select>
+   </ion-item>
+    <br><br>
+    <ion-button expand="full" (click)="onRegister()" color="tertiary">Crear Cuenta</ion-button>
+  </div>
+  <div *ngIf="isRegister">
+    <ion-item>
+      <ion-label>Cuenta Creada</ion-label>
+    </ion-item>
+  </div>
+  <br>
+
+</ion-content>
