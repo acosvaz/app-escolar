@@ -35,15 +35,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'login',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+          }
+        ]
+      },
+      {
         path: '',
-        redirectTo: '/tabs/abecedario',
+        redirectTo: '/tabs/login',
         pathMatch: 'full'
       }
     ]
   },
   {
       path: '',
-      redirectTo: '/tabs/abecedario',
+      redirectTo: '/tabs/login',
       pathMatch: 'full'
 
    }

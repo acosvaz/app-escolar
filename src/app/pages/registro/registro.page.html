@@ -26,7 +26,7 @@
     <ion-item>
         <ion-label>Tipo de usuario</ion-label>
           <ion-select [(ngModel)]="form.tipo_user" interface="popover">
-            <ion-select-option *ngFor="let tipo of tipos" value="tipo.valor">{{tipo.nombre}}</ion-select-option>
+            <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.valor">{{tipo.nombre}}</ion-select-option>
         </ion-select>
    </ion-item>
     <br><br>

@@ -1,19 +1,28 @@
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
+<ion-tabs >
+  <ion-tab-bar *ngIf="isLogged" slot="bottom">
+
+    <ion-tab-button tab="login">
+      <ion-icon name="book"></ion-icon>
+      <ion-label>login</ion-label>
+    </ion-tab-button>
     
-    <ion-tab-button tab="abecedario">
+    <ion-tab-button *ngIf="!isAdmin" tab="abecedario">
       <ion-icon name="book"></ion-icon>
       <ion-label>Silabas</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="vocales">
+    <ion-tab-button *ngIf="!isAdmin" tab="vocales">
       <ion-icon name="cube"></ion-icon>
       <ion-label>Ejercicios</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="inicio">
+    <ion-tab-button *ngIf="isAdmin" tab="inicio">
       <ion-icon name="grid"></ion-icon>
       <ion-label>Detalles</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="logOut()">
+      <ion-label>logout</ion-label>
     </ion-tab-button>
 
   </ion-tab-bar>

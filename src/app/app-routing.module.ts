@@ -11,10 +11,10 @@ const routes: Routes = [
   //  path: 'inicio',
   //  loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   //},
-  //{
-  //  path: 'vocales',
-  //  loadChildren: () => import('./pages/vocales/vocales.module').then( m => m.VocalesPageModule)
-  //},
+  {
+    path: 'vocales',
+    loadChildren: () => import('./pages/vocales/vocales.module').then( m => m.VocalesPageModule)
+  },
   //{
   //  path: 'abecedario',
   //  loadChildren: () => import('./pages/abecedario/abecedario.module').then( m => m.AbecedarioPageModule)
@@ -35,10 +35,10 @@ const routes: Routes = [
     path: 'modal',
     loadChildren: () => import('./pages/modal/modal.module').then( m => m.ModalPageModule)
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
+ // {
+ //   path: 'login',
+ //   loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+ // },
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)

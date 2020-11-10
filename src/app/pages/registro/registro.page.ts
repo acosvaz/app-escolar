@@ -21,12 +21,12 @@ export class RegistroPage implements OnInit {
     {
       id: 1,
       nombre: 'Alumno',
-      valor: 'admin',
+      valor: 'user',
     },
     {
       id: 2,
       nombre: 'Maestro',
-      valor: 'user',
+      valor: 'admin',
     }
   ];
 

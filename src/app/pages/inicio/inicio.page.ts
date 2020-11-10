@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/token.service';
+import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+ isLogged = false;
+  isAdmin = false;
 
-  constructor() { }
+  constructor(
+  private tokenService: TokenService,
+  private router: Router
+  ) { }
 
   ngOnInit() {
+   if (this.tokenService.getToken()) {
+
+      this.isLogged = true;
+
+    } else {
+      this.isLogged = false;
+      this.router.navigate(['']);
+      
+    }
   }
 
 }
