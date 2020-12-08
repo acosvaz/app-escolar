@@ -42,6 +42,14 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'curso-ejercicios/:id',
+    loadChildren: () => import('./pages/curso-ejercicios/curso-ejercicios.module').then( m => m.CursoEjerciciosPageModule)
+  },
+  {
+    path: 'ejercicio-agregar',
+    loadChildren: () => import('./pages/ejercicio-agregar/ejercicio-agregar.module').then( m => m.EjercicioAgregarPageModule)
   }
   ];
 

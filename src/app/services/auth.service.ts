@@ -4,6 +4,9 @@ import { LoginUsuario } from '../models/login-usuario';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../models/login-model';
 import { NuevoUsuario } from '../models/nuevo-usuario';
+import { NuevoCurso } from '../models/nuevo-curso';
+import { Curso } from '../models/curso';
+
 
 
 @Injectable({
@@ -22,6 +25,18 @@ private authURL = 'http://localhost/apiapp/auth/';
 
   public registro(usuario: NuevoUsuario): Observable<any> {
     return this.httpClient.post<any>(this.authURL + 'registro', usuario);
+  }
+
+  public agregar_curso(nuevocurso: NuevoCurso): Observable<any> {
+    return this.httpClient.post<any>(this.authURL + 'insertcurso', nuevocurso);
+  }
+
+  public cursos(id: string): Observable<Curso[]> {
+    return this.httpClient.get<Curso[]>(this.authURL + `curso/${id}`);
+  }
+
+  public borrarcurso(id: string): Observable<any> {
+    return this.httpClient.delete<any>(this.authURL + `borrar/${id}`);
   }
 
 }

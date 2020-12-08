@@ -1,5 +1,5 @@
 export class LoginModel {
-    id?: number;
+    id: string;
     username: string;
     rol: string;
     token: string;

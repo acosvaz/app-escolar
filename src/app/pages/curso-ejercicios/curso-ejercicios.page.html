@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="newcolor">
+	<ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/tabs/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Ejercicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  	<hr>
+    <ion-button expand="full" color="success" routerLink="/ejercicio-agregar">Nuevo Ejercicio</ion-button>
+  	<hr>
+    <ion-row align="center">
+      <ion-col><b>Id</b></ion-col>
+      <ion-col><b>Tipo</b></ion-col>
+      <ion-col><b>Editar</b></ion-col>
+      <ion-col><b>Borrar</b></ion-col>
+    </ion-row>
+    <hr>
+    <ion-row *ngFor="let ejercicio of ejercicios" align-items-center>
+      <ion-col>{{ejercicio.nombre}}</ion-col>
+      <ion-col>{{ejercicio.tipo}}</ion-col>
+      <ion-col><ion-button color="warning" size="small" [routerLink]="['/', 'editar', ejercicio.id]"><ion-icon name="create"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button color="danger" size="small" (click)="presentAlertConfirm(ejercicio.id)"><ion-icon name="trash"></ion-icon></ion-button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginUsuario } from 'src/app/models/login-usuario';
+import { NuevoCurso } from 'src/app/models/nuevo-curso';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertController } from '@ionic/angular';
 import { TokenService } from 'src/app/services/token.service';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 
 @Component({
@@ -15,7 +15,9 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 export class LoginPage implements OnInit {
 
   form: any = {};
+  curso: any = {};
   usuario: LoginUsuario;
+  nuevocurso: NuevoCurso;
   nombreUser: string;
   isLogged = false;
   isLoginFail = false;
@@ -23,28 +25,17 @@ export class LoginPage implements OnInit {
   isUser = false;
   errorMsg = 'Usuario y/o Contraseña incorrectos';
   rol: string;
-  id: number;
-  todo : FormGroup;
+  id: string;
 
   constructor(
   	private authService: AuthService,
     private alertController: AlertController,
     private tokenService: TokenService,
-    private router: Router,
-    private formBuilder: FormBuilder
-  ) {
-
-    this.todo = this.formBuilder.group({
-      curso: '',
-      ejercicio: this.formBuilder.array([])
-    });
-  }
+    private router: Router
+  ) {}
 
 //agregrar nuevo curso por lo pronto solo esta lectura
-  listOne = ['Lectura', 'Otro'];
-
-//agregar ejercicio, por lo pronto solo tenemos dos audio e imegenes
-  listTwo = ['Lectura', 'Identificacionde de palabras'];
+  listOne = ['Lengua Materna', 'Ciencias Naturales'];
 
   ngOnInit() {
 
@@ -55,7 +46,7 @@ export class LoginPage implements OnInit {
       this.isLogged = true;
       this.isLoginFail = false;
       this.rol = this.tokenService.getRol();
-      this.id = Number(this.tokenService.getId());
+      this.id = this.tokenService.getId();
 
       if (this.tokenService.getRol() !== 'user') {
         this.isAdmin = true;
@@ -90,9 +81,26 @@ export class LoginPage implements OnInit {
     );
   }
 
+    onClick() {
+    const id = this.id;
+    this.nuevocurso = new NuevoCurso(id, this.curso.nombre_curso);
+
+    this.authService.agregar_curso(this.nuevocurso).subscribe(data => {
+      console.log(this.nuevocurso);
+      this.errorMsg = 'Curso agregado';
+      this.presentAlert();
+
+    },
+      (err: any) => {
+        console.log(err);
+        this.errorMsg = 'Curso no agregado';
+        this.presentAlert();
+      }
+    );
+  }
+
     async presentAlert() {
     const alert = await this.alertController.create({
-      header: 'Usuario o contraseña incorrectos',
       message: this.errorMsg,
       buttons: ['Aceptar']
     });
@@ -103,7 +111,6 @@ export class LoginPage implements OnInit {
 
 onLogout() {
   this.tokenService.logOut();
-  //this.router.navigate(['']);
   window.location.reload();
 }
 

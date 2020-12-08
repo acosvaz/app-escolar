@@ -1,5 +1,35 @@
+<ion-header>
+  <ion-toolbar color="newcolor">
+    <ion-title color="light" align="center">Cursos</ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content *ngIf="isLogged" slot="fixed">
+	<ion-list>
+		<ion-item>
+			<ion-label><b>Curso</b></ion-label>
+		</ion-item>
+		<ion-item-sliding *ngFor="let curso of cursos">
+    		<ion-item>
+      			<ion-label>{{curso.nombre_curso}} - {{curso.clave_curso}}</ion-label>
+    		</ion-item>
 
-<ion-content *ngIf="isLogged">
+    		<ion-item-options side="start">
+    			<ion-item-option color="primary">
+    				<ion-icon slot="icon-only" name="body"></ion-icon>
+    			</ion-item-option>
 
+    			<ion-item-option color="secondary" [routerLink]="['/', 'curso-ejercicios', curso.id]">
+    				<ion-icon slot="icon-only" name="document-attach"></ion-icon>
+    			</ion-item-option>
+    		</ion-item-options>
+
+    		<ion-item-options side="end">
+    			<ion-item-option color="danger" (click)="presentAlertConfirm(curso.id)">
+    				<ion-icon slot="icon-only" name="trash"></ion-icon>
+    			</ion-item-option>
+    		</ion-item-options>
+
+		</ion-item-sliding>
+	</ion-list>
 </ion-content>
