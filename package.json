@@ -31,6 +31,7 @@
     "cordova-android": "^8.1.0",
     "cordova-plugin-nativeaudio": "^3.0.9",
     "cordova-plugin-speechrecognition": "^1.2.0",
+    "ng2-file-upload": "^1.4.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

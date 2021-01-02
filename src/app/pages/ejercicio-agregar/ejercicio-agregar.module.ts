@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { EjercicioAgregarPageRoutingModule } from './ejercicio-agregar-routing.module';
 
 import { EjercicioAgregarPage } from './ejercicio-agregar.page';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EjercicioAgregarPageRoutingModule
+    EjercicioAgregarPageRoutingModule,
+    FileUploadModule
   ],
   declarations: [EjercicioAgregarPage]
 })

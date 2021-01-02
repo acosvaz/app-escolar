@@ -15,7 +15,8 @@ import { Curso } from '../models/curso';
 export class AuthService {
 
 //cambiar
-private authURL = 'http://localhost/apiapp/auth/';
+//private authURL = 'http://localhost/apiapp/auth/';
+private authURL = 'https://estres.denscode.com/apiapp/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -37,6 +38,10 @@ private authURL = 'http://localhost/apiapp/auth/';
 
   public borrarcurso(id: string): Observable<any> {
     return this.httpClient.delete<any>(this.authURL + `borrar/${id}`);
+  }
+
+  public uploadFormData(formData) {
+    return this.httpClient.post<any>(this.authURL + 'upload', formData);
   }
 
 }
