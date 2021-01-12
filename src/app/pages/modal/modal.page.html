@@ -1,29 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{custom_id}}</ion-title>
+    <ion-title>Agregar Contenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content slot="fixed">
 
-	<ion-slides [options]=slideOptsTwo>
-		<ion-slide (click)="audio(name1, audio1)">
+<div *ngIf="!isLee">
+    <br>
+    <ion-item>
+      <ion-label position="floating">Problema:</ion-label>
+      <ion-input type="text" name="problema" [(ngModel)]="form.problema"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="file" name="imagem" [(ngModel)]="form.file"></ion-input>
+    </ion-item>
+    <br><br>
+    <ion-button expand="block" color="newcolor">Siguiente</ion-button>
+    <br>
+  </div>
+  
+  <div *ngIf="isLee">
+    <br>
+    <form>
+     <ion-list>
+      <ion-item>
+        <ion-label position="floating">Inscribirte a un Curso</ion-label>
+        <ion-input type="text" name="curso"></ion-input>
+      </ion-item>
+      </ion-list>
+      <br>
+      <ion-button expand="block" ion-button> Inscribirme </ion-button>
+    </form>
+    <br>
+  </div> 
 
-			<img src="assets/imagen/{{imagen1}}.jpg"/>
-
-		</ion-slide>
-		<ion-slide (click)="audio(name2, audio2)">
-
-			<img src="assets/imagen/{{imagen2}}.jpg"/>
-
-		</ion-slide>
-		<ion-slide (click)="audio(name3, audio3)">
-
-			<img src="assets/imagen/{{imagen3}}.jpg"/>
-
-		</ion-slide>
-	</ion-slides>
-
-	<ion-button (click)="clickin()" color="primary" expand="full"></ion-button>
 
 </ion-content>

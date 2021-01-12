@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit} from '@angular/core';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
@@ -10,31 +8,18 @@ import { IonSlides } from '@ionic/angular';
 })
 export class ModalPage implements OnInit {
 
-@ViewChild('IonSlides', { static: false }) slides: IonSlides;
+  form: any = {};
+  isLee = false;
 
-sliderUno: any;
 
-
-@Input() custom_id;
-@Input() imagen1;
-@Input() imagen2;
-@Input() imagen3;
-@Input() name1;
-@Input() name2;
-@Input() name3;
-@Input() audio1;
-@Input() audio2;
-@Input() audio3;
-
-  constructor( private modalController: ModalController, private nativeAudio: NativeAudio ) {}
+  constructor(private nativeAudio: NativeAudio ) {}
 
 
   ngOnInit() {
-     this.slides.update();
   }
 
   clickin(){
-  this.modalController.dismiss();
+  //this.modalController.dismiss();
   }
 
   audio(audio: string, adrees: string){

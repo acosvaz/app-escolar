@@ -6,6 +6,8 @@ import { LoginModel } from '../models/login-model';
 import { NuevoUsuario } from '../models/nuevo-usuario';
 import { NuevoCurso } from '../models/nuevo-curso';
 import { Curso } from '../models/curso';
+import { Ejercicio } from '../models/ejercicio';
+import { Contenido } from '../models/contenido';
 
 
 
@@ -15,8 +17,8 @@ import { Curso } from '../models/curso';
 export class AuthService {
 
 //cambiar
-//private authURL = 'http://localhost/apiapp/auth/';
-private authURL = 'https://estres.denscode.com/apiapp/auth/';
+private authURL = 'http://localhost/apiapp/auth/';
+//private authURL = 'https://estres.denscode.com/apiapp/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -42,6 +44,26 @@ private authURL = 'https://estres.denscode.com/apiapp/auth/';
 
   public uploadFormData(formData) {
     return this.httpClient.post<any>(this.authURL + 'upload', formData);
+  }
+
+  public ejercicios(id: string): Observable<Ejercicio[]> {
+    return this.httpClient.get<Ejercicio[]>(this.authURL + `ejercicio/${id}`);
+  }
+
+  public agregar_ejercicio(formData, id: string) {
+    return this.httpClient.post<any>(this.authURL + `insertejercicio/${id}`, formData);
+  }
+
+  public borrarejercicio(id: string): Observable<any> {
+    return this.httpClient.delete<any>(this.authURL + `borrarejr/${id}`);
+  }
+
+  public contenidos(id: string): Observable<Contenido[]> {
+    return this.httpClient.get<Contenido[]>(this.authURL + `contenido/${id}`);
+  }
+
+  public borrarcontenido(id: string): Observable<any> {
+    return this.httpClient.delete<any>(this.authURL + `borrarcont/${id}`);
   }
 
 }

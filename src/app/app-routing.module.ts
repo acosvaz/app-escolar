@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/popovercomponent/popovercomponent.module').then( m => m.PopovercomponentPageModule)
   },
   {
-    path: 'modal',
+    path: 'modal/:id/:ejercicio',
     loadChildren: () => import('./pages/modal/modal.module').then( m => m.ModalPageModule)
   },
  // {
@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/curso-ejercicios/curso-ejercicios.module').then( m => m.CursoEjerciciosPageModule)
   },
   {
-    path: 'ejercicio-agregar',
+    path: 'ejercicio-agregar/:id',
     loadChildren: () => import('./pages/ejercicio-agregar/ejercicio-agregar.module').then( m => m.EjercicioAgregarPageModule)
   }
   ];
