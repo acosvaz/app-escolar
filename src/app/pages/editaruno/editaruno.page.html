@@ -3,13 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button color="light" defaultHref="/ejercicio-agregar"></ion-back-button>
     </ion-buttons>
-    <ion-title color="light">Agregar Contenido</ion-title>
+    <ion-title color="light">Editar Contenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content slot="fixed">
-<div *ngIf="!isRegister">
-<div *ngIf="isSelecciona">
+
     <br>
     <ion-item>
       <ion-label position="floating">Problema:</ion-label>
@@ -35,40 +34,7 @@
       <input type="file" accept="image/*" ng2FileSelect [uploader]="fileUploader"/>
     </ion-item>
     <br><br>
-    <ion-button color="newcolor" expand="full" (click)="uploadFiles()">Crear</ion-button>
+    <ion-button color="newcolor" expand="full" (click)="uploadFiless()">Crear</ion-button>
     <br>
-  </div>
-  
-  <div *ngIf="isReplica">
-    <br>
-    <form>
-     <ion-list>
-      <ion-item>
-        <ion-label position="floating">Problema</ion-label>
-        <ion-input type="text" name="problema" [(ngModel)]="form.problema"></ion-input>
-      </ion-item>
-    <ion-item>
-      <ion-label position="floating">Respuesta:</ion-label>
-      <ion-input type="text" name="respuesta" [(ngModel)]="form.respuesta"></ion-input>
-    </ion-item>
-    <ion-item>
-      <input type="file" accept="image/*" ng2FileSelect [uploader]="fileUploader"/>
-    </ion-item>
-      </ion-list>
-    <br><br>
-    <ion-button color="newcolor" expand="full" (click)="enviarFiles()">Crear</ion-button>
-    <br>
-    </form>
-    <br>
-  </div>
-</div>
-
-
-  <div *ngIf="isRegister">
-    <ion-item>
-      <ion-label>Contenido Creado</ion-label>
-    </ion-item>
-  </div>
-  <br>
 
 </ion-content>

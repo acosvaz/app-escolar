@@ -4,19 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModalPageRoutingModule } from './modal-routing.module';
+import { EditardosPageRoutingModule } from './editardos-routing.module';
 
-import { ModalPage } from './modal.page';
+import { EditardosPage } from './editardos.page';
 import { FileUploadModule } from 'ng2-file-upload';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ModalPageRoutingModule,
+    EditardosPageRoutingModule,
     FileUploadModule
   ],
-  declarations: [ModalPage]
+  declarations: [EditardosPage]
 })
-export class ModalPageModule {}
+export class EditardosPageModule {}

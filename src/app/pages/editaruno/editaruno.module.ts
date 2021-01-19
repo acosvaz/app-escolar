@@ -4,19 +4,21 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModalPageRoutingModule } from './modal-routing.module';
+import { EditarunoPageRoutingModule } from './editaruno-routing.module';
 
-import { ModalPage } from './modal.page';
+import { EditarunoPage } from './editaruno.page';
+
 import { FileUploadModule } from 'ng2-file-upload';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ModalPageRoutingModule,
+    EditarunoPageRoutingModule,
     FileUploadModule
   ],
-  declarations: [ModalPage]
+  declarations: [EditarunoPage]
 })
-export class ModalPageModule {}
+export class EditarunoPageModule {}

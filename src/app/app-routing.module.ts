@@ -48,8 +48,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/curso-ejercicios/curso-ejercicios.module').then( m => m.CursoEjerciciosPageModule)
   },
   {
-    path: 'ejercicio-agregar/:id',
+    path: 'ejercicio-agregar/:id/:ejercicio',
     loadChildren: () => import('./pages/ejercicio-agregar/ejercicio-agregar.module').then( m => m.EjercicioAgregarPageModule)
+  },
+  {
+    path: 'alumnos',
+    loadChildren: () => import('./pages/alumnos/alumnos.module').then( m => m.AlumnosPageModule)
+  },
+  {
+    path: 'editaruno/:id/:idejercicio',
+    loadChildren: () => import('./pages/editaruno/editaruno.module').then( m => m.EditarunoPageModule)
+  },
+  {
+    path: 'editardos/:id/:idejercicio',
+    loadChildren: () => import('./pages/editardos/editardos.module').then( m => m.EditardosPageModule)
   }
   ];
 

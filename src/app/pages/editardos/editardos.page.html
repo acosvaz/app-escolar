@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="newcolor">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/ejercicio-agregar"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Editar Contenido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form>
+     <ion-list>
+      <ion-item>
+        <ion-label position="floating">Problema</ion-label>
+        <ion-input type="text" name="problema" [(ngModel)]="form.problema"></ion-input>
+      </ion-item>
+    <ion-item>
+      <ion-label position="floating">Respuesta:</ion-label>
+      <ion-input type="text" name="respuesta" [(ngModel)]="form.respuesta"></ion-input>
+    </ion-item>
+    <ion-item>
+      <input type="file" accept="image/*" ng2FileSelect [uploader]="fileUploader"/>
+    </ion-item>
+      </ion-list>
+    <br><br>
+    <ion-button color="newcolor" expand="full" (click)="uploadFiles()">Crear</ion-button>
+    <br>
+    </form>
+    <br>
+</ion-content>

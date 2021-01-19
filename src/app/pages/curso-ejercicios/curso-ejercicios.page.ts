@@ -13,7 +13,7 @@ import { Ejercicio } from 'src/app/models/ejercicio';
 export class CursoEjerciciosPage implements OnInit {
 
 ejercicios: Ejercicio[] = [];
-ejer = ['Lee correctamente', 'Selecciona la palabra'];
+ejer = ['Replica la palabra', 'Selecciona la palabra'];
 form: any = {};
 errorMsg = 'Coloque todos los campos';
 

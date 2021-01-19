@@ -46,6 +46,10 @@ private authURL = 'http://localhost/apiapp/auth/';
     return this.httpClient.post<any>(this.authURL + 'upload', formData);
   }
 
+  public subirFormData(formData) {
+    return this.httpClient.post<any>(this.authURL + 'subir', formData);
+  }
+
   public ejercicios(id: string): Observable<Ejercicio[]> {
     return this.httpClient.get<Ejercicio[]>(this.authURL + `ejercicio/${id}`);
   }
@@ -64,6 +68,22 @@ private authURL = 'http://localhost/apiapp/auth/';
 
   public borrarcontenido(id: string): Observable<any> {
     return this.httpClient.delete<any>(this.authURL + `borrarcont/${id}`);
+  }
+
+   public editaruno(id: string): Observable<any> {
+    return this.httpClient.get<any>(this.authURL + `editaruno/${id}`);
+  }
+
+   public editardos(id: string): Observable<any> {
+    return this.httpClient.get<any>(this.authURL + `editardos/${id}`);
+  }
+
+  public uploadFormDataEdit(formData) {
+    return this.httpClient.post<any>(this.authURL + 'subireditar', formData);
+  }
+
+  public subirFormDataEdit(formData) {
+    return this.httpClient.post<any>(this.authURL + 'uploadeditar', formData);
   }
 
 }

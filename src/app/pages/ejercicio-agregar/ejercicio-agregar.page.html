@@ -9,7 +9,7 @@
 
 <ion-content padding>
     <br>
-    <ion-button expand="full" color="newcolor" [routerLink]="['/', 'modal']">Agregar ejercicio</ion-button>
+    <ion-button expand="full" color="newcolor" [routerLink]="['/', 'modal', this.id, this.ejercicio]">Agregar ejercicio</ion-button>
 
   <ion-grid>
     <hr>
@@ -21,7 +21,7 @@
     <hr>
     <ion-row align="center" *ngFor="let contenido of contenidos">
       <ion-col>{{contenido.problema}}</ion-col>
-      <ion-col><ion-button color="warning" size="small" [routerLink]="['/', 'modal', contenido.id, contenido.ejercicio]"><ion-icon name="create"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button color="warning" size="small" [routerLink]="['/', this.page, contenido.id, this.id]"><ion-icon name="create"></ion-icon></ion-button></ion-col>
       <ion-col><ion-button color="danger" size="small" (click)="presentAlertConfirm(contenido.id)"><ion-icon name="trash"></ion-icon></ion-button></ion-col>
     </ion-row>
   </ion-grid>

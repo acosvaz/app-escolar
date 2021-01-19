@@ -16,6 +16,9 @@ export class EjercicioAgregarPage implements OnInit {
 
   //agrega los ejercicios que quieras
 contenidos: Contenido[] = [];
+ejercicio: string;
+id:string;
+page : string;
 
   constructor(
   private authService: AuthService, 
@@ -31,6 +34,14 @@ contenidos: Contenido[] = [];
    }
 
   ngOnInit() {
+  this.ejercicio = this.activatedRoute.snapshot.params.ejercicio;
+  this.id = this.activatedRoute.snapshot.params.id;
+
+     if (this.ejercicio == "Replica la palabra"){
+        this.page = 'editardos';
+      } else {
+        this.page = 'editaruno';
+      }
   }
 
  cargarContenidos(): void {

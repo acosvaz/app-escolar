@@ -28,7 +28,7 @@
     <hr>
     <ion-row align="center" *ngFor="let ejercicio of ejercicios">
       <ion-col>{{ejercicio.ejercicio}}</ion-col>
-      <ion-col><ion-button color="warning" size="small" [routerLink]="['/', 'ejercicio-agregar', ejercicio.id]"><ion-icon name="create"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button color="warning" size="small" [routerLink]="['/', 'ejercicio-agregar', ejercicio.id, ejercicio.ejercicio]"><ion-icon name="create"></ion-icon></ion-button></ion-col>
       <ion-col><ion-button color="danger" size="small" (click)="presentAlertConfirm(ejercicio.id)"><ion-icon name="trash"></ion-icon></ion-button></ion-col>
     </ion-row>
   </ion-grid>
