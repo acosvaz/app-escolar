@@ -86,4 +86,8 @@ private authURL = 'http://localhost/apiapp/auth/';
     return this.httpClient.post<any>(this.authURL + 'uploadeditar', formData);
   }
 
+  public agregar_inscripcion(id, clave, formData) {
+    return this.httpClient.post<any>(this.authURL + `inscripcion/${id}/${clave}`, formData);
+  }
+
 }

@@ -16,6 +16,7 @@ export class LoginPage implements OnInit {
 
   form: any = {};
   curso: any = {};
+  formulario: any = {};
   usuario: LoginUsuario;
   nuevocurso: NuevoCurso;
   nombreUser: string;
@@ -86,7 +87,6 @@ export class LoginPage implements OnInit {
     this.nuevocurso = new NuevoCurso(id, this.curso.nombre_curso);
 
     this.authService.agregar_curso(this.nuevocurso).subscribe(data => {
-      console.log(this.nuevocurso);
       this.errorMsg = 'Curso agregado';
       this.presentAlert();
 
@@ -94,6 +94,23 @@ export class LoginPage implements OnInit {
       (err: any) => {
         console.log(err);
         this.errorMsg = 'Curso no agregado';
+        this.presentAlert();
+      }
+    );
+  }
+
+  onInscripcion() {
+    const id = this.id;
+    const form = this.formulario.clave
+    this.authService.agregar_inscripcion(id, form, form).subscribe(data => {
+      this.errorMsg = 'Inscripcion agregada';
+      this.formulario.clave = "";
+      this.presentAlert();
+
+    },
+      (err: any) => {
+        console.log(err);
+        this.errorMsg = 'Inscripcion no agregado';
         this.presentAlert();
       }
     );

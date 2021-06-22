@@ -48,19 +48,16 @@
   </div>
 
   <div *ngIf="isUser">
-    <form>
      <ion-list>
       <ion-item>
         <ion-label position="floating">Inscribirte a un Curso</ion-label>
-        <ion-input type="text" name="curso"></ion-input>
+        <ion-input type="text" name="clave"  [(ngModel)]="formulario.clave"></ion-input>
       </ion-item>
       </ion-list>
       <br>
-      <ion-button expand="block" ion-button> Inscribirme </ion-button>
-    </form>
+      <ion-button expand="block" ion-button (click)="onInscripcion()"> Inscribirme </ion-button>
     <br>
   </div> 
 
   </div>  
 </ion-content>
-
